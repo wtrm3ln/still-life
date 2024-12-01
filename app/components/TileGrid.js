@@ -8,7 +8,7 @@ const specialTiles = [
       bgColor: "bg-light",
       content: (
         <div
-          className="p-4 w-full h-full hover:bg-primary text-black hover:text-white flex flex-col justify-center group items-center"
+          className="p-4 w-full h-full hover:bg-primary text-black hover:text-white animate duration-200 flex flex-col justify-center group items-center"
           onClick={() => alert("Special Tile 1 Clicked!")}
         >
           <h1 className="font-reenie text-5xl">stilllife</h1>
@@ -20,32 +20,45 @@ const specialTiles = [
     },
     {
       id: 2,
-      position: 38,
-      colSpan: 4,
+      position: 43,
+      colSpan: 3,
       rowSpan: 2,
-      bgColor: "bg-secondary",
+      bgColor: "",
       content: (
         <div
-          className="p-4 text-black"
+          className="p-4 text-black text-center"
         >
-          <h3 className="text-xl font-grotesk font-bold">Rapid Response Design Team</h3>
-          <p>We help companies do design better</p>
+          <h3 className="text-xl font-grotesk font-bold">Still</h3>
+          <p>We build products that experiences that delight users.</p>
         </div>
       ),
     },
     {
       id: 3,
-      position: 78,
-      colSpan: 5,
-      rowSpan: 3,
-      bgColor: "bg-accent",
+      position: 60,
+      colSpan: 3,
+      rowSpan: 2,
+      bgColor: "bg-light",
       content: (
         <div
-          className="p-4 text-black"
+          className="p-4 text-black text-center"
           onClick={() => console.log("Special Tile 3 clicked!")}
         >
-          <h3 className="text-xl font-bold">What can we do for you?</h3>
-          <p>Tell us!</p>
+          <h3 className="text-xl font-grotesk font-bold">Life</h3>
+          <p>We make sure that our creations have a meaningful identity.</p>
+        </div>
+      ),
+    },
+    {
+      id: 4,
+      position: 23,
+      colSpan: 1,
+      rowSpan: 1,
+      bgColor: "bg-white",
+      content: (
+        <div
+          className="p-4 w-full aspect-square bg-accent rounded-full m-2"
+        >
         </div>
       ),
     },
@@ -65,7 +78,7 @@ const specialTiles = [
     const totalTiles = calculateTotalTiles(threshold, specialTiles);
   
     return (
-      <div className="outline outline-2 outline-light grid sm:grid-cols-6 md:grid-cols-10 lg:grid-cols-15 auto-rows-[minmax(0,1fr)] gap-0">
+      <div className="outline outline-2 -outline-offset-2 outline-light grid sm:grid-cols-6 md:grid-cols-10 lg:grid-cols-15 auto-rows-[minmax(0,1fr)] gap-0">
         {Array.from({ length: totalTiles }).map((_, index) => {
           const specialTile = specialTiles.find(
             (tile) => tile.position === index + 1
@@ -89,7 +102,7 @@ const specialTiles = [
           return (
             <div
               key={`default-${index}`}
-              className="border border-secondary aspect-square bg-light hover:bg-primary transition duration-300"
+              className="border border-secondary aspect-square bg-light transition duration-300"
             ></div>
           );
         })}

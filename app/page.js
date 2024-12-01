@@ -10,9 +10,8 @@ export default function Home() {
       
       <TileGrid />
 
-      <h1 className="font-reenie text-4xl">Stll Life is a design company</h1>
-      <p className="font-grotesk text-lg">Made by product designers</p>
-      <Image width={200} height={200} src="/circle.png" alt="still-life logo" className="fixed right-5 bottom-5 animate-spin-slow" />
+      <div className="bg-light w-full h-24 relative z-[2] -mt-24"></div>
+      <Image width={150} height={150} src="/circle.png" alt="still-life logo" className="fixed z-[99] right-5 bottom-5 animate-spin-slow" />
 
     </div>
   );

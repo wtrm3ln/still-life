@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${reenieBeanie.variable} ${spaceGrotesk.variable} antialiased`}
+        className={`${reenieBeanie.variable} ${spaceGrotesk.variable} font-grotesk antialiased`}
       >
         {children}
       </body>

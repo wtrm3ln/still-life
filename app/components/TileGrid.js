@@ -1,112 +1,69 @@
-'use client'
-const specialTiles = [
-    {
-      id: 1,
-      position: 25,
-      colSpan: 4,
-      rowSpan: 2,
-      bgColor: "bg-light",
-      content: (
-        <div
-          className="p-4 w-full h-full hover:bg-primary text-black hover:text-white animate duration-200 flex flex-col justify-center group items-center"
-          onClick={() => alert("Special Tile 1 Clicked!")}
-        >
-          <h1 className="font-reenie text-5xl">stilllife</h1>
-        <div className="flex">
-        <div className="w-1 h-1 bg-black group-hover:bg-accent rounded-full mr-2 inline-block"></div> <p className="font-grotesk text-2xl group-hover:text-accent whitespace-nowrap -mt-3 text-lg">design studio</p>  <div className="w-1 h-1 bg-black group-hover:bg-accent rounded-full ml-2 inline-block"></div>
+import Tile from "./Tile";
+import Tile4 from "./Tile4";
+const TileGrid = () => {
+
+  return (
+    <div
+      className='hidden md:grid md:grid-cols-[repeat(17,_minmax(0,_1fr))] divide-x divide-y divide-secondary divide-x-2 divide-y-2'
+    >
+      {Array.from({ length: 18 }, (_, index) => (
+        <Tile />
+      ))}
+
+      <Tile square = {false} colspan="8">
+        <div className="absolute top-0 bottom-0 left-0 w-1/4 z-10 border-r-[1.5px] border-secondary font-reenie text-4xl flex items-center justify-center bg-white text-primary">
+          still
         </div>
+        
+        {/* Second Child */}
+        <div className="absolute top-0 bottom-0 right-full w-3/4 flex gap-1 items-center justify-center bg-white text-black transition-all duration-500 group-hover:right-0">
+         <p>puilding products and experiences</p> <div className="w-1 h-1 rounded-full bg-primary"></div>
         </div>
-      ),
-    },
-    {
-      id: 2,
-      position: 43,
-      colSpan: 3,
-      rowSpan: 2,
-      bgColor: "",
-      content: (
-        <div
-          className="p-4 text-black text-center"
-        >
-          <h3 className="text-xl font-grotesk font-bold">Still</h3>
-          <p>We build products that experiences that delight users.</p>
-        </div>
-      ),
-    },
-    {
-      id: 3,
-      position: 60,
-      colSpan: 3,
-      rowSpan: 2,
-      bgColor: "bg-light",
-      content: (
-        <div
-          className="p-4 text-black text-center"
-          onClick={() => console.log("Special Tile 3 clicked!")}
-        >
-          <h3 className="text-xl font-grotesk font-bold">Life</h3>
-          <p>We make sure that our creations have a meaningful identity.</p>
-        </div>
-      ),
-    },
-    {
-      id: 4,
-      position: 23,
-      colSpan: 1,
-      rowSpan: 1,
-      bgColor: "bg-white",
-      content: (
-        <div
-          className="p-4 w-full aspect-square bg-accent rounded-full m-2"
+      </Tile>
+
+      {Array.from({ length: 20 }, (_, index) => (
+        <Tile />
+      ))}
+
+      <Tile>
+      <div
+          className="w-full aspect-square bg-accent rounded-full"
         >
         </div>
-      ),
-    },
-  ];
-  
-  function calculateTotalTiles(threshold, specialTiles, columns = 15) {
-    const specialTilesArea = specialTiles.reduce(
-      (sum, tile) => sum + tile.colSpan * tile.rowSpan,
-      0
-    );
-    const total = threshold + specialTilesArea;
-    return Math.ceil(total / columns) * columns;
-  }
-  
-  export default function TileGrid() {
-    const threshold = 100;
-    const totalTiles = calculateTotalTiles(threshold, specialTiles);
-  
-    return (
-      <div className="outline outline-2 -outline-offset-2 outline-light grid sm:grid-cols-6 md:grid-cols-10 lg:grid-cols-15 auto-rows-[minmax(0,1fr)] gap-0">
-        {Array.from({ length: totalTiles }).map((_, index) => {
-          const specialTile = specialTiles.find(
-            (tile) => tile.position === index + 1
-          );
-  
-          if (specialTile) {
-            return (
-              <div
-                key={`special-${specialTile.id}`}
-                className={`${specialTile.bgColor} flex border border-secondary items-center justify-center`}
-                style={{
-                  gridColumn: `span ${specialTile.colSpan} / span ${specialTile.colSpan}`,
-                  gridRow: `span ${specialTile.rowSpan} / span ${specialTile.rowSpan}`,
-                }}
-              >
-                {specialTile.content}
-              </div>
-            );
-          }
-  
-          return (
-            <div
-              key={`default-${index}`}
-              className="border border-secondary aspect-square bg-light transition duration-300"
-            ></div>
-          );
-        })}
-      </div>
-    );
-  }
-  
+      </Tile>
+
+      {Array.from({ length: 14 }, (_, index) => (
+        <Tile />
+      ))}
+
+      <Tile square = {false} colspan="6" className='col-start-3'>
+        <div className="absolute top-0 bottom-0 right-0 w-1/3 z-10 border-l-[1.5px] border-secondary font-reenie text-4xl flex items-center justify-center bg-white text-primary">
+          life
+        </div>
+        
+        {/* Second Child */}
+        <div className="absolute top-0 bottom-0 left-full w-2/3 flex gap-1 items-center justify-center bg-white text-black transition-all duration-500 group-hover:left-0">
+          <div className="w-1 h-1 rounded-full bg-primary text-lg font-bold"></div> <p>with a little beauty and craft</p> 
+        </div>
+      </Tile>
+
+      {Array.from({ length: 22}, (_, index) => (
+        <Tile />
+      ))}
+
+        <div className='col-span-4 aspect-[4/1] flex flex-col justify-center items-center bg-primary shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)]'>
+          
+            <h1 className="font-reenie text-white text-5xl">stilllife</h1>
+          <div className="flex">
+          <div className="w-1 h-1 bg-accent rounded-full mr-2 inline-block"></div> <p className="font-grotesk text-2xl text-accent whitespace-nowrap -mt-3 text-lg">design studio</p>  <div className="w-1 h-1 bg-black bg-accent rounded-full ml-2 inline-block"></div>
+          
+          </div>
+        </div>
+        {Array.from({ length: 32 }, (_, index) => (
+        <Tile />
+      ))}
+    </div>
+  );
+};
+
+export default TileGrid;

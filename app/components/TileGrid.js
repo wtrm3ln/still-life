@@ -7,7 +7,7 @@ const TileGrid = () => {
       className='hidden md:grid md:grid-cols-[repeat(17,_minmax(0,_1fr))] divide-x divide-y divide-secondary divide-x-2 divide-y-2'
     >
       {Array.from({ length: 18 }, (_, index) => (
-        <Tile />
+        <Tile key={index}/>
       ))}
 
       <Tile square = {false} colspan="8">
@@ -22,7 +22,7 @@ const TileGrid = () => {
       </Tile>
 
       {Array.from({ length: 20 }, (_, index) => (
-        <Tile />
+        <Tile key={index}/>
       ))}
 
       <Tile>
@@ -33,7 +33,7 @@ const TileGrid = () => {
       </Tile>
 
       {Array.from({ length: 14 }, (_, index) => (
-        <Tile />
+        <Tile key={index}/>
       ))}
 
       <Tile square = {false} colspan="6" className='col-start-3'>
@@ -48,7 +48,7 @@ const TileGrid = () => {
       </Tile>
 
       {Array.from({ length: 22}, (_, index) => (
-        <Tile />
+        <Tile key={index}/>
       ))}
 
         <div className='col-span-4 aspect-[4/1] flex flex-col justify-center items-center bg-primary shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)]'>
@@ -60,7 +60,7 @@ const TileGrid = () => {
           </div>
         </div>
         {Array.from({ length: 32 }, (_, index) => (
-        <Tile />
+        <Tile key={index}/>
       ))}
     </div>
   );

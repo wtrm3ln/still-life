@@ -6,48 +6,50 @@ const TileGrid = () => {
     <div
       className='hidden md:grid md:grid-cols-[repeat(17,_minmax(0,_1fr))] divide-x divide-y divide-secondary divide-x-2 divide-y-2'
     >
-      {Array.from({ length: 18 }, (_, index) => (
+      {Array.from({ length: 24 }, (_, index) => (
         <Tile key={index}/>
       ))}
 
       <Tile square = {false} colspan="8">
-        <div className="absolute top-0 bottom-0 left-0 w-1/4 z-10 border-r-[1.5px] border-secondary font-reenie text-4xl flex items-center justify-center bg-white text-primary">
+        <div className="absolute top-0 bottom-0 left-0 w-1/4 z-10 border-r-[1.5px] border-secondary font-reenie text-5xl flex items-center justify-center bg-white text-primary">
           still
         </div>
         
         {/* Second Child */}
-        <div className="absolute top-0 bottom-0 right-full w-3/4 flex gap-1 items-center justify-center bg-white text-black transition-all duration-500 group-hover:right-0">
-         <p>puilding products and experiences</p> <div className="w-1 h-1 rounded-full bg-primary"></div>
+        <div className="absolute z-[9] top-0 bottom-0 right-full w-3/4 flex gap-1 items-center justify-center bg-white text-black text-lg transition-all duration-500 group-hover:right-0">
+         <p>building products and experiences</p> <div className="w-1 h-1 rounded-full bg-primary"></div>
         </div>
+
+        <Tile />
+        <Tile /><Tile />
+        <Tile /><Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+
       </Tile>
 
-      {Array.from({ length: 20 }, (_, index) => (
+      {Array.from({ length: 4 }, (_, index) => (
         <Tile key={index}/>
       ))}
 
-      <Tile>
-      <div
-          className="w-full aspect-square bg-accent rounded-full"
-        >
-        </div>
-      </Tile>
-
-      {Array.from({ length: 14 }, (_, index) => (
-        <Tile key={index}/>
-      ))}
-
-      <Tile square = {false} colspan="6" className='col-start-3'>
-        <div className="absolute top-0 bottom-0 right-0 w-1/3 z-10 border-l-[1.5px] border-secondary font-reenie text-4xl flex items-center justify-center bg-white text-primary">
+      <Tile square = {false} colspan="6">
+        <div className="absolute top-0 bottom-0 right-0 w-1/3 z-10 border-l-[1.5px] border-secondary font-reenie text-5xl flex items-center justify-center bg-white text-primary">
           life
         </div>
         
         {/* Second Child */}
-        <div className="absolute top-0 bottom-0 left-full w-2/3 flex gap-1 items-center justify-center bg-white text-black transition-all duration-500 group-hover:left-0">
-          <div className="w-1 h-1 rounded-full bg-primary text-lg font-bold"></div> <p>with a little beauty and craft</p> 
+        <div className="absolute z-[9] top-0 bottom-0 left-full w-2/3 flex gap-1 items-center justify-center bg-white text-lg text-black transition-all duration-500 group-hover:left-0">
+          <div className="w-1 h-1 rounded-full bg-primary font-bold"></div> <p>with a little beauty and craft</p> 
         </div>
+
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
       </Tile>
 
-      {Array.from({ length: 22}, (_, index) => (
+      {Array.from({ length: 19}, (_, index) => (
         <Tile key={index}/>
       ))}
 
@@ -59,7 +61,7 @@ const TileGrid = () => {
           
           </div>
         </div>
-        {Array.from({ length: 32 }, (_, index) => (
+        {Array.from({ length: 20 }, (_, index) => (
         <Tile key={index}/>
       ))}
     </div>
